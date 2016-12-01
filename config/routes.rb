@@ -10,6 +10,9 @@ CanvasRails::Application.routes.draw do
 
   resources :epub_exports, only: [:index]
 
+  resources :book_pages, only: [:show]
+  get 'soc/index/title/:title' => 'book_pages#show'
+
   get 'inbox' => 'context#inbox'
   get 'oauth/redirect_proxy' => 'oauth_proxy#redirect_proxy'
 
