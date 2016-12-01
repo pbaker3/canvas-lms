@@ -21,6 +21,9 @@ class BookPagesController < ApplicationController
 
   def show
     set_book_page
+    if authorized_action(@book_page, @current_user, :read)
+      render
+    end
   end
 
   private
